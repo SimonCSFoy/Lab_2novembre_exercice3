@@ -5,10 +5,12 @@
         static void Main(string[] args)
         {
             string choix = "";
+
             while (choix != "4")
             {
                 AfficherMenu();
                 choix = ObtenirStringUtilisateur("Entrez votre choix : ");
+
                 if (choix == "1")
                 {
                     ProgrammeVerifierPair();
@@ -28,6 +30,7 @@
         {
             string texte = ObtenirStringUtilisateur("Entrez une chaîne de caractères en minuscules à vérifier : ");
             bool estPalindrome = EstPalindrome(texte);
+
             if (estPalindrome)
             {
                 Console.WriteLine($"{texte} est un palindrôme.");
@@ -41,7 +44,9 @@
         public static void ProgrammeVerifierPair()
         {
                 int nombre = ObtenirEntierUtilisateur("Entrez un nombre entier (10 caractères maximum) : ");
-                if (EstPair(nombre))
+                bool estPair = EstPair(nombre);
+
+                if (estPair)
                 {
                     Console.WriteLine($"Le nombre {nombre} est pair");
                 }
@@ -55,8 +60,10 @@
         public static void ProgrammeVerifierPalindromeEtPair()
         {
             int entier = ObtenirEntierUtilisateur("Entrez un entier à vérifier : ");
+            string entierEnString = entier.ToString();
             bool estPair = EstPair(entier);
-            bool estPalindrome = EstPalindrome(entier.ToString());
+            bool estPalindrome = EstPalindrome(entierEnString);
+
             if (estPalindrome && estPair) 
             {
                 Console.WriteLine($"{entier} est un entier palindrôme pair.");
@@ -103,6 +110,7 @@
         {
             bool conversionReussie = false;
             int nombre = 0;
+
             while (conversionReussie != true)
             {
                 string entreeUtilisateur = ObtenirStringUtilisateur(message);
